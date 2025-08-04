@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Error</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .error-box {
+        background-color: #ffebee;
+        color: #c62828;
+        padding: 20px;
+        border-radius: 5px;
+        word-wrap: break-word;
+      }
+      .try-again-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>An Error Occurred</h1>
+    <div class="error-box">
+      <p>{{ message }}</p>
+    </div>
+
+    <a href="/" class="try-again-link">← Try Again</a>
+  </body>
+</html>

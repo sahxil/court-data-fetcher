@@ -1,0 +1,15 @@
+# Virtual Environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database file
+*.db
+
+# Session files
+flask_session/
+
+# Static image files (we don't need to track the generated captchas)
+static/*.png
