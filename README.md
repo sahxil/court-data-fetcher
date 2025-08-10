@@ -1,76 +1,20 @@
-# Court-Data Fetcher & Mini-Dashboard
+# Court-Data Fetcher & Mini-Dashboard ⚖️
 
-This web application is a submission for an internship task. It allows users to fetch case data from the Allahabad High Court's public portal.
+A full-stack Python web application that automates fetching and displaying real-time case data from the Allahabad High Court's public portal. This project demonstrates robust web scraping, a clean user interface, and resilient error handling.
 
----
-
-### Court Chosen
-
-As per the task requirements, a specific court had to be chosen for scraping.
-
-- **Court:** High Court of Judicature at Allahabad
-- **URL:** `https://www.allahabadhighcourt.in/apps/status_ccms/`
+**[▶️ Watch the Demo Video](https://drive.google.com/file/d/1NyQ01wsOag2o3BLSxoCd7gr9R-p_ePrZ/view?usp=drive_link)**
 
 ---
 
-### Setup and Run Instructions
+## Features ✨
 
-To run this project locally, please follow these steps:
+-   **🖥️ Simple & Clean UI**: A straightforward web form for case data submission.
+-   **🤖 Robust Selenium Scraper**: Navigates the court's complex, multi-page, JavaScript-driven website.
+-   **🔒 Legal CAPTCHA Handling**: Implements a "human-in-the-loop" strategy to legally and effectively bypass the image CAPTCHA.
+-   **🔄 Dynamic Content Loading**: The list of "Case Types" is scraped in real-time to ensure it's always up-to-date.
+-   **✅ Intelligent Error Handling**: Provides specific user-friendly messages for "Record Not Found" and "Incorrect CAPTCHA" errors.
+-   **🗄️ Database Logging**: Every query and its raw HTML response is logged to an SQLite database for auditing.
+-   **📄 Stable Results Page**: Uses a Post/Redirect/Get pattern to prevent annoying "Confirm Form Resubmission" warnings on refresh.
+-   **✨ Polished Presentation**: The final results are displayed in a clean, self-contained Bootstrap accordion, completely decoupled from the source site's messy frontend code.
 
-1.  **Clone the repository:**
-
-    ```bash
-    git clone <Your-Repo-URL>
-    cd <repository-folder>
-    ```
-
-2.  **Create and activate a virtual environment:**
-
-    ```bash
-    python -m venv venv
-    # On Windows
-    .\venv\Scripts\activate
-    # On macOS/Linux
-    source venv/bin/activate
-    ```
-
-3.  **Install the required packages:**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4.  **Initialize the database:**
-    (This only needs to be run once to create the `queries.db` file)
-
-    ```bash
-    python database.py
-    ```
-
-5.  **Run the Flask application:**
-    ```bash
-    flask run
-    ```
-    The application will be available at `http://127.0.0.1:5000`.
-
----
-
-### CAPTCHA Strategy
-
-The target website is protected by an image-based CAPTCHA that cannot be solved programmatically without external services. [cite_start]To circumvent this legally and creatively, this project uses a "human-in-the-loop" or "manual token" approach[cite: 29].
-
-**Workflow:**
-
-1.  When the user loads the homepage, the Flask backend initiates a live Selenium session with the court's website.
-2.  The scraper navigates to the search form and downloads the exact CAPTCHA image presented in that specific session.
-3.  This session-specific image is then displayed to the user in the web app's frontend.
-4.  The user manually types the characters from the image. This input is then sent back to the backend.
-5.  The scraper uses the user's input to complete the form within the original live session and submit the request.
-
-This method is robust, legal, and effectively handles the CAPTCHA challenge without relying on third-party APIs.
-
----
-
-### Environment Variables
-
-This application is self-contained and does not require any external API keys or secret environment variables to run.
+## Architecture 🏗️
